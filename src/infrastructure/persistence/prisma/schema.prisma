@@ -31,3 +31,24 @@ model UserVerificationCode {
   created_at DateTime @default(now())
   updated_at DateTime @default(now()) @updatedAt
 }
+
+model Commodity {
+  id             Int              @id @default(autoincrement())
+  name           String
+  image          String?
+  CommodityPrice CommodityPrice[]
+  created_at     DateTime         @default(now())
+  updated_at     DateTime         @default(now()) @updatedAt
+}
+
+model CommodityPrice {
+  id            Int       @id @default(autoincrement())
+  price         Float
+  currency      String
+  units         String
+  referenceDate DateTime
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @default(now()) @updatedAt
+  Commodity     Commodity @relation(fields: [commodityId], references: [id])
+  commodityId   Int
+}

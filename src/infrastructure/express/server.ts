@@ -1,7 +1,7 @@
 import express from "express"
 import cors from "cors";
-import userRouter from "./routes/user";
 import authRouter from "./routes/auth";
+import userRouter from "./routes/user";
 
 const app = express()
 
@@ -19,6 +19,6 @@ app.use("/api/user", userRouter)
 export const startServer = () => {
     const port = 8000
     app.listen(port, () => {
-        console.log(`CoreMicro app listening on port ${port}`)
+        console.log(`API listening on port ${port}`)
     })
 }

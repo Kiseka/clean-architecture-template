@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
-import { RequestModel } from '../../../lib/types/request';
-import { ResponseModel } from '../../../lib/types/response';
-import { DefaultApplicationError } from '../../../lib/errors/default-application-error';
+import { DefaultApplicationError } from '@/application/exceptions/default-application-error';
+import { RequestModel } from '@/lib/types/request';
+import { ResponseModel } from '@/lib/types/response';
 
 type handleRequest = (requestModel: RequestModel) => Promise<ResponseModel<any>>;
 export const expressRouteAdapter = (handleRequest: handleRequest) => {

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
-import { Middleware } from '../../../presentation/middlewares/middlewares.types';
-import { DefaultApplicationError } from '../../../lib/errors/default-application-error';
+import { DefaultApplicationError } from '@/application/exceptions/default-application-error';
+import { Middleware } from '@/presentation/middlewares/middlewares.types';
 
 export const expressMiddlewareAdapter = (middleware: Middleware) => {
   return async (request: Request, response: Response, next: NextFunction) => {

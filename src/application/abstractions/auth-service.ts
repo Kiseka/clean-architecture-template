@@ -1,4 +1,4 @@
-import { IUser } from "../../domain/user";
+import { IUser } from "../../domain/entities/user";
 
 export type AuthToken = {
     accessToken: string,

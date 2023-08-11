@@ -1,8 +1,8 @@
-import { IUserVerificationCodeRepository } from "../../../domain/repository-interfaces/user-verification-code-repository";
-import { IUser } from "../../../domain/user";
-import { IUserVerificationCode } from "../../../domain/user-verification-token";
-import { generateOTP } from "../../../lib/helpers/commons";
-import { IEmailService } from "../../abstractions/email-service";
+import { IEmailService } from "@/application/abstractions/email-service";
+import { IUserVerificationCodeRepository } from "@/domain/repositories/user-verification-code-repository";
+import { IUser } from "@/domain/entities/user";
+import { IUserVerificationCode } from "@/domain/entities/user-verification-token";
+import { generateOTP } from "@/lib/helpers/commons";
 
 export class SendOtpUseCase {
     constructor(

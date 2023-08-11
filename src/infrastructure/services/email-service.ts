@@ -1,7 +1,7 @@
 // nodemailerEmailService.ts
 import nodemailer from "nodemailer";
 import pug from "pug";
-import { IEmailService } from "../../application/abstractions/email-service";
+import { IEmailService } from "@/application/abstractions/email-service";
 
 export class NodemailerEmailService implements IEmailService {
     async sendEmail(template: string, data: any, toEmail: string, subject: string): Promise<any> {

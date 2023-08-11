@@ -1,11 +1,12 @@
-import { CreateUserUseCase } from "../../application/use-cases/users/create-user";
-import { LoginUserUseCase } from "../../application/use-cases/users/login-user";
-import { SendOtpUseCase } from "../../application/use-cases/users/send-otp";
-import { VerifyUserUserCase } from "../../application/use-cases/users/verify-user";
-import { IUser } from "../../domain/user";
-import { HTTP_STATUS_CODE } from "../../lib/config/constants";
-import { apiErrorResponse, apiSuccessResponse } from "../../lib/helpers/response-helpers";
-import { RequestModel } from "../../lib/types/request";
+import { CreateUserUseCase } from "@/application/use-cases/users/create-user";
+import { LoginUserUseCase } from "@/application/use-cases/users/login-user";
+import { SendOtpUseCase } from "@/application/use-cases/users/send-otp";
+import { VerifyUserUserCase } from "@/application/use-cases/users/verify-user";
+import { IUser } from "@/domain/entities/user";
+import { HTTP_STATUS_CODE } from "@/lib/config/constants";
+import { apiErrorResponse, apiSuccessResponse } from "@/lib/helpers/response-helpers";
+import { RequestModel } from "@/lib/types/request";
+
 
 export default class AuthController {
 

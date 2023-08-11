@@ -1,7 +1,7 @@
-import { IUserRepository } from "../../../domain/repository-interfaces/user-repository";
-import { UnauthorizedError } from "../../../lib/errors/unauthorized-error";
-import { validateFields } from "../../../lib/helpers/validation-helper";
-import { IAuthService } from "../../abstractions/auth-service";
+import { IAuthService } from "@/application/abstractions/auth-service";
+import { IUserRepository } from "@/domain/repositories/user-repository";
+import { UnauthorizedError } from "@/application/exceptions/unauthorized-error";
+import { validateFields } from "@/application/validation/validation-helpers";
 
 export class LoginUserUseCase {
     constructor(

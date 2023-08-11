@@ -1,7 +1,7 @@
-import { IUserRepository } from "../../../domain/repository-interfaces/user-repository";
-import { IUser, User } from "../../../domain/user";
-import { RequestValidationError } from "../../../lib/errors/request-validation-error";
-import { IAuthService } from "../../abstractions/auth-service";
+import { IAuthService } from "@/application/abstractions/auth-service";
+import { IUserRepository } from "@/domain/repositories/user-repository";
+import { IUser } from "@/domain/entities/user";
+import { validateFields } from "@/application/validation/validation-helpers";
 
 export class CreateUserUseCase {
   constructor(
@@ -9,21 +9,17 @@ export class CreateUserUseCase {
     private authService: IAuthService
   ) { }
 
-  async execute(data: IUser): Promise<IUser> {
-    const password = await this.authService.encryptPassword(data.password)
-    const user = new User(
-      data.firstName,
-      data.lastName,
-      data.email,
-      data.phone,
-      password
-    )
+  async execute(user: IUser): Promise<IUser> {
 
-    if (user.checkValidationErrors().length > 0) {
-      const error = new RequestValidationError()
-      error.messages = user.checkValidationErrors();
-      throw error;
-    }
+    validateFields({
+      email: { value: user.email, required: true },
+      password: { value: user.password, required: true },
+      firstName: { value: user.firstName, required: true },
+      lastName: { value: user.lastName, required: true },
+    });
+
+    const password = await this.authService.encryptPassword(user.password)
+    user.password = password
 
     // Check if the user with the given email already exists
     const existingUser = await this.userRepository.getUserByEmail(user.email);
@@ -33,7 +29,6 @@ export class CreateUserUseCase {
 
     // Create the new user
     const createdUser = await this.userRepository.createUser(user);
-    console.log(createdUser)
     return createdUser;
   }
 }

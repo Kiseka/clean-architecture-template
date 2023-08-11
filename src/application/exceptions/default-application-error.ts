@@ -1,4 +1,4 @@
-import { ResponseModel } from "../types/response";
+import { ResponseModel } from "@/lib/types/response";
 
 export type ErrorParams = {
   name?: string;

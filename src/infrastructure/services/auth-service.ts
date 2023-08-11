@@ -1,9 +1,9 @@
-import { AuthToken, IAuthService } from "../../application/abstractions/auth-service";
-import { IUser } from "../../domain/user";
 import bcrypt from "bcryptjs"
 import jwt from "jsonwebtoken";
-import { UnauthorizedError } from "../../lib/errors/unauthorized-error";
-import { InternalServerError } from "../../lib/errors/internal-server-error";
+import { AuthToken, IAuthService } from "@/application/abstractions/auth-service";
+import { IUser } from "@/domain/entities/user";
+import { InternalServerError } from "@/application/exceptions/internal-server-error";
+import { UnauthorizedError } from "@/application/exceptions/unauthorized-error";
 
 export class AuthService implements IAuthService {
 

@@ -1,4 +1,4 @@
-import { RequestModel } from "../../lib/types/request";
+import { RequestModel } from "@/lib/types/request";
 
 export interface MiddlewareRequestModel extends RequestModel {
     method?: string;

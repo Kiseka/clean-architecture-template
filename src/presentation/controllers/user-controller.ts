@@ -1,7 +1,7 @@
-import { GetProfileUseCase } from "../../application/use-cases/users/get-profile";
-import { HTTP_STATUS_CODE } from "../../lib/config/constants";
-import { apiErrorResponse, apiSuccessResponse } from "../../lib/helpers/response-helpers";
-import { RequestModel } from "../../lib/types/request";
+import { GetProfileUseCase } from "@/application/use-cases/users/get-profile";
+import { HTTP_STATUS_CODE } from "@/lib/config/constants";
+import { apiErrorResponse, apiSuccessResponse } from "@/lib/helpers/response-helpers";
+import { RequestModel } from "@/lib/types/request";
 
 export default class UserController {
     public constructor(private getProfileUseCase: GetProfileUseCase) { }

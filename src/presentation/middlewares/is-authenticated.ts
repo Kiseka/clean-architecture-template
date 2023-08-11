@@ -1,6 +1,6 @@
-import { IAuthService } from "../../application/abstractions/auth-service";
-import { UnauthorizedError } from "../../lib/errors/unauthorized-error";
+import { IAuthService } from "@/application/abstractions/auth-service";
 import { Middleware, MiddlewareRequestModel } from "./middlewares.types";
+import { UnauthorizedError } from "@/application/exceptions/unauthorized-error";
 
 export class IsAuthenticatedMiddleware implements Middleware {
   constructor(private authService: IAuthService) { }

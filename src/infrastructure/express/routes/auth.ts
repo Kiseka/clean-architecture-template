@@ -1,10 +1,9 @@
 
 import express from "express";
+import authControllerFactory from "@/infrastructure/factories/controllers/auth-controller-factory";
 import { expressRouteAdapter } from "../adapters/express-route-adapter";
-import authControllerFactory from "../../factories/controllers/auth-controller-factory";
 const authRouter = express.Router();
 const { registerUser, verifyUser, loginUser } = authControllerFactory()
-
 
 authRouter.post("/login",
     expressRouteAdapter(loginUser)

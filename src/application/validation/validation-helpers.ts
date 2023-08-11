@@ -1,5 +1,5 @@
-import { RequestValidationError } from "../errors/request-validation-error";
-import { isEmpty } from "./commons";
+import { RequestValidationError } from "@/application/exceptions/request-validation-error";
+import { isEmpty } from "@/lib/helpers/commons";
 
 type ValidationRule = {
     value: any
@@ -48,6 +48,13 @@ export const validationErrors = (rules: Record<string, ValidationRule>): Validat
     return validationResults;
 }
 
+/**
+ * Validates fields based on the provided rules and throws a RequestValidationError if there are validation errors.
+ *
+ * @param {Record<string, ValidationRule>} rules - The validation rules to apply to the fields.
+ * @throws {RequestValidationError} Throws an error if there are validation errors.
+ */
+
 export const validateFields = (rules: Record<string, ValidationRule>) => {
     const validationResults: ValidationResult[] = validationErrors(rules);
     if (validationResults.length > 0) {
@@ -62,7 +69,3 @@ export const validateFields = (rules: Record<string, ValidationRule>) => {
 //     firstName: { value: "Marvo", required: true, minLength: 5 },
 //     password: { value: "password", required: true, minLength: 5, format: /^[a-zA-Z0-9]+$/ },
 // };
-
-// const validationResults = validateFields(validationRules);
-
-// console.log(validationResults);

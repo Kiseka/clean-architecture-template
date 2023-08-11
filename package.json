@@ -1,9 +1,9 @@
 {
   "scripts": {
     "start": "node dist/app.js",
-    "dev": "ts-node-dev --respawn --transpile-only src/app.ts ",
-    "watch": "nodemon src/app.ts ",
-    "build": "tsc -p .",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only src/app.ts ",
+    "watch": "nodemon -r tsconfig-paths/register src/app.ts ",
+    "build": "tsc && tsc-alias .",
     "migrate": "ts-node-dev src/lib/db/migrate.ts"
   },
   "prisma": {
@@ -20,6 +20,8 @@
     "nodemon": "^2.0.22",
     "prisma": "^5.1.0",
     "ts-node-dev": "^2.0.0",
+    "tsc-alias": "^1.8.7",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.0.4"
   },
   "dependencies": {

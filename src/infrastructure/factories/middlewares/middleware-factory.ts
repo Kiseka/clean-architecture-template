@@ -1,5 +1,5 @@
-import { IsAuthenticatedMiddleware } from "../../../presentation/middlewares/is-authenticated";
-import { AuthService } from "../../services/auth-service";
+import { AuthService } from "@/infrastructure/services/auth-service";
+import { IsAuthenticatedMiddleware } from "@/presentation/middlewares/is-authenticated";
 
 const middleWareFactory = () => {
   const authService = new AuthService()

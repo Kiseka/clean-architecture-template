@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-import { IUserVerificationCodeRepository } from "../../../domain/repository-interfaces/user-verification-code-repository";
-import { IUserVerificationCode } from "../../../domain/user-verification-token";
+import { IUserVerificationCodeRepository } from "@/domain/repositories/user-verification-code-repository";
+import { IUserVerificationCode } from "@/domain/entities/user-verification-token";
 const prisma = new PrismaClient();
 
 export class UserVerificationCodeRepository implements IUserVerificationCodeRepository {

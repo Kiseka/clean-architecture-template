@@ -1,6 +1,6 @@
-import { GetProfileUseCase } from "../../../application/use-cases/users/get-profile";
-import UserController from "../../../presentation/controllers/user-controller";
-import { UserRepository } from "../../persistence/repositories/user-repository";
+import { GetProfileUseCase } from "@/application/use-cases/users/get-profile";
+import { UserRepository } from "@/infrastructure/persistence/repositories/user-repository";
+import UserController from "@/presentation/controllers/user-controller";
 
 const userControllerFactory = () => {
     const userRepository = new UserRepository()

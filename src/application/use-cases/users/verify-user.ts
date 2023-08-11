@@ -1,7 +1,8 @@
-import { IUserRepository } from "../../../domain/repository-interfaces/user-repository";
-import { IUserVerificationCodeRepository } from "../../../domain/repository-interfaces/user-verification-code-repository";
-import { BadRequestError } from "../../../lib/errors/bad-request-error";
-import { NotFoundError } from "../../../lib/errors/not-found-error";
+import { IUserRepository } from "@/domain/repositories/user-repository";
+import { IUserVerificationCodeRepository } from "@/domain/repositories/user-verification-code-repository";
+import { BadRequestError } from "@/application/exceptions/bad-request-error";
+import { NotFoundError } from "@/application/exceptions/not-found-error";
+
 export class VerifyUserUserCase {
     constructor(
         private userRepository: IUserRepository,
